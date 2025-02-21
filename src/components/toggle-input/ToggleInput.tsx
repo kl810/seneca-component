@@ -26,7 +26,7 @@ export default function ToggleInput({options}: ToggleInputProps) {
                 <button 
                     type="button" 
                     onClick={handleToggle} 
-                    className={`toggle ${isToggled ? '': 'selected'}`} //opposite to left-button in same container
+                    className={`toggle ${isToggled ? '': 'selected'}`} //if isToggled != true, .selected css applies
                     disabled={!isToggled}
                 >
                     <h5 className="text">{options[1]}</h5>
