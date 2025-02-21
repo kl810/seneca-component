@@ -1,11 +1,10 @@
 import React from 'react';
 import './App.css';
-import ComponentTemplate from './components/component-template/ComponentTemplate';
-
+import QuizContainer from './components/quiz-container/QuizContainer';
 function App() {
   return (
     <div className="App">
-      <ComponentTemplate />
+      <QuizContainer />
     </div>
   );
 }
