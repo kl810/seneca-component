@@ -1,0 +1,35 @@
+.toggle-container {
+    width: 288px;
+    height: 48px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border: 2px solid #F8CAA3;
+    border-radius: 50px;
+    margin: 2rem;
+    text-wrap: nowrap;
+}
+
+.toggle {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background-color: transparent;
+    border-radius: 50px;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+.selected {
+    background-color: #F8CAA3;
+    color: #9F938B;
+}
+
+.text {
+    font-weight: 700;
+    line-height: 28.8px;
+    font-size: 18px;
+}
