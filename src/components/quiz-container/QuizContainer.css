@@ -1,0 +1,27 @@
+.quiz-wrapper {
+    width: 320px;
+    height: 631px;
+    border-radius: 15px;
+    background-image: linear-gradient(#F6B868, #EE6B2D);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    text-align: center;
+    font-weight: 700;
+    position: absolute;             /* START: the following properties centres entire div*/
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%); /* END */
+}
+
+.question-heading {
+    font-size: 20px;
+    line-height: 32px;
+}
+
+.answer-statement {
+    font-size: 16px;
+    line-height: 25.6px;
+}
