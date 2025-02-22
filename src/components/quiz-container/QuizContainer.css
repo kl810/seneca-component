@@ -16,7 +16,7 @@
     transform: translate(-50%, -50%); /* END */
 }
 
-.question-heading {
+.question {
     font-size: 20px;
     line-height: 32px;
 }
