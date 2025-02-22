@@ -23,7 +23,7 @@
     cursor: pointer;
 }
 
-.selected {
+.active {
     background-color: #F8CAA3;
     color: #9F938B;
 }
