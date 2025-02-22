@@ -3,29 +3,34 @@ import ToggleInput from '../toggle-input/ToggleInput';
 
 const quizData = [
     {
-        id: 1,
         options: ["Cell Wall", "Ribosomes"],
-        answer: "Ribosomes"
+        selectedAnswer: "",
+        correctAnswer: "Ribosomes"
     },
     {
-        id: 2,
         options: ["Cytoplasm", "Chloroplast"],
-        answer: "Cytoplasm"
+        selectedAnswer: "",
+        correctAnswer: "Cytoplasm"
     },
     {
-        id: 3,
         options: ["Cellulose", "Mitochondria"],
-        answer: "Mitochondria"
-    }
+        selectedAnswer: "",
+        correctAnswer: "Mitochondria"
+    },
+    {
+        options: ["Cell Wall", "Ribosomes"],
+        selectedAnswer: "",
+        correctAnswer: "Ribosomes"
+    },
 ]
 
 export default function QuizContainer() {
     return (
         <div className="quiz-wrapper">
             <div className="quiz-content">
-                <h4 className="question-heading">An animal cell contains:</h4>
-                {quizData.map(({id, options}) => 
-                    <ToggleInput key={id} options={[options[0], options[1]]}/>)
+                <h4 className="question">An animal cell contains:</h4>
+                {quizData.map(({options, selectedAnswer, correctAnswer}, index) => 
+                    <ToggleInput key={`${correctAnswer}-${index}`} options={options} selected={selectedAnswer} answer={correctAnswer}/>)
                 }
                 <p className="answer-statement">The answer is incorrect</p>
             </div>
