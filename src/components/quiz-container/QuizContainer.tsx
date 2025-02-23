@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { RootState } from '../../store';
 
 export default function QuizContainer() {
-    const { question, answerOptions } = useSelector((state: RootState) => state.quiz)
+    const { question, answerOptions, isComplete } = useSelector((state: RootState) => state.quiz)
 
     return (
         <div className="quiz-wrapper">
@@ -14,10 +14,11 @@ export default function QuizContainer() {
                     <ToggleInput 
                         key={`${options}-${index}`} 
                         id={id}
-                        options={options} 
+                        options={options}
+                        isComplete={isComplete}
                     />)
                 } 
-                <p className="answer-statement">The answer is incorrect</p>
+                <p className="answer-statement">The answer is {isComplete ? "correct!" : "incorrect"}</p>
             </div>
         </div>
     )
