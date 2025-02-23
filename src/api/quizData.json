@@ -1,0 +1,32 @@
+{
+    "question": "An animal cell contains",
+    "answerOptions": [
+        {
+            "options": ["Cell Wall", "Ribosomes"],
+            "selectedAnswer": "",
+            "correctAnswer": "Ribosomes",
+            "isCorrect": false
+        },
+        {
+            "options": ["Cytoplasm", "Chloroplast"],
+            "selectedAnswer": "",
+            "correctAnswer": "Cytoplasm",
+            "isCorrect": false
+        },
+        {
+            "options": ["Cellulose", "Mitochondria"],
+            "selectedAnswer": "",
+            "correctAnswer": "Mitochondria",
+            "isCorrect": false
+        },
+        {
+            "options": ["Cell Wall", "Ribosomes"],
+            "selectedAnswer": "",
+            "correctAnswer": "Ribosomes",
+            "isCorrect": false
+        }
+    ]
+    
+}
+    
+  
