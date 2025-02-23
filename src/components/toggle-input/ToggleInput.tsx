@@ -1,31 +1,22 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import './ToggleInput.css';
+import { updateSelectedAnswer } from '../../features/quiz/quizSlice';
+
 
 interface ToggleInputProps {
+    id: number,
     options: string[],
-    selected: string,
-    answer: string,
 }
 
-export default function ToggleInput({ options, selected, answer}: ToggleInputProps) {
+export default function ToggleInput({ id, options }: ToggleInputProps) {
     const [ isActiveId, setIsActiveId ] = useState<number|null>(null)
-    const [ selectedAnswer, setSelectedAnswer ] = useState<string>("")
+    const dispatch = useDispatch()
 
-    const handleButtonClick = (event: React.MouseEvent<HTMLButtonElement>, id: number) => {
-        setIsActiveId(id)
-        setSelectedAnswer(event.currentTarget.value)
+    const handleButtonClick = (event: React.MouseEvent<HTMLButtonElement>, index: number) => {
+        setIsActiveId(index)
+        dispatch(updateSelectedAnswer({toggleId: id, selectedAnswer: event.currentTarget.value}))
     }
-
-    useEffect(() => {
-        console.log("isActiveId: ", isActiveId);
-        console.log("selectedAnswer: ", selectedAnswer);
-
-        if (selectedAnswer === answer){
-            console.log("Answer is correct!")
-        } else {
-            console.log("Incorrect Answer :(")
-        }
-    }, [isActiveId, selectedAnswer, answer]);
 
 
     return (
