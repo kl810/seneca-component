@@ -1,25 +1,31 @@
 import { useState, useEffect } from 'react';
 import './ToggleInput.css';
 
-
 interface ToggleInputProps {
     options: string[],
     selected: string,
-    answer: string
+    answer: string,
 }
 
 export default function ToggleInput({ options, selected, answer}: ToggleInputProps) {
-
-    const [ isActiveId, setIsActiveId ] = useState<number>()
+    const [ isActiveId, setIsActiveId ] = useState<number|null>(null)
+    const [ selectedAnswer, setSelectedAnswer ] = useState<string>("")
 
     const handleButtonClick = (event: React.MouseEvent<HTMLButtonElement>, id: number) => {
         setIsActiveId(id)
-        // console.log(event.currentTarget.value)
+        setSelectedAnswer(event.currentTarget.value)
     }
 
     useEffect(() => {
         console.log("isActiveId: ", isActiveId);
-    }, [isActiveId]);
+        console.log("selectedAnswer: ", selectedAnswer);
+
+        if (selectedAnswer === answer){
+            console.log("Answer is correct!")
+        } else {
+            console.log("Incorrect Answer :(")
+        }
+    }, [isActiveId, selectedAnswer, answer]);
 
 
     return (
