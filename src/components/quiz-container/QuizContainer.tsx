@@ -10,12 +10,11 @@ export default function QuizContainer() {
         <div className="quiz-wrapper">
             <div className="quiz-content">
                 <h4 className="question">{question}:</h4>
-                {answerOptions.map(({options, selectedAnswer, correctAnswer}, index) => 
+                {answerOptions.map(({id, options}, index) => 
                     <ToggleInput 
-                        key={`${correctAnswer}-${index}`} 
+                        key={`${options}-${index}`} 
+                        id={id}
                         options={options} 
-                        selected={selectedAnswer} 
-                        answer={correctAnswer}
                     />)
                 } 
                 <p className="answer-statement">The answer is incorrect</p>
