@@ -7,9 +7,10 @@ import { updateSelectedAnswer } from '../../features/quiz/quizSlice';
 interface ToggleInputProps {
     id: number,
     options: string[],
+    isComplete: boolean,
 }
 
-export default function ToggleInput({ id, options }: ToggleInputProps) {
+export default function ToggleInput({ id, options, isComplete }: ToggleInputProps) {
     const [ isActiveId, setIsActiveId ] = useState<number|null>(null)
     const dispatch = useDispatch()
 
@@ -31,6 +32,7 @@ export default function ToggleInput({ id, options }: ToggleInputProps) {
                         value={option}
                         className={ index === isActiveId ? "toggle active" : "toggle" }
                         onClick={(event) => handleButtonClick(event, index)}
+                        disabled={isComplete}
                     >
                         <h5 className="text">{option}</h5>
                     </button>
