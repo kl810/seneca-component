@@ -5,6 +5,7 @@ export const quizSlice = createSlice({
   initialState: {
     question: "An animal cell contains",
     correctCount: 0,
+    isComplete: false,
     answerOptions: [
         {
             "id": 1,
@@ -50,6 +51,7 @@ export const quizSlice = createSlice({
 
       state.correctCount = correctCount;     //update number of correct answers
 
+      state.isComplete = correctCount === state.answerOptions.length  //isComplete true when all answers correct
     }
   }
 })
