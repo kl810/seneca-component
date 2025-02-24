@@ -8,11 +8,16 @@ interface ToggleInputProps {
     id: number,
     options: string[],
     isComplete: boolean,
+    correctCount: number,
+    answerOptions: Array<object>,
+    getBgColor: (count: number, options: Array<object>) => string,
 }
 
-export default function ToggleInput({ id, options, isComplete }: ToggleInputProps) {
+export default function ToggleInput({ id, options, isComplete, correctCount, answerOptions, getBgColor }: ToggleInputProps) {
     const [ isActiveId, setIsActiveId ] = useState<number|null>(null)
     const dispatch = useDispatch()
+
+    const updateToggleCss = getBgColor(correctCount, answerOptions);
 
     const handleButtonClick = (event: React.MouseEvent<HTMLButtonElement>, index: number) => {
         setIsActiveId(index)
@@ -30,7 +35,9 @@ export default function ToggleInput({ id, options, isComplete }: ToggleInputProp
                         name={option}
                         aria-label="Answer Option"
                         value={option}
-                        className={ index === isActiveId ? "toggle active" : "toggle" }
+                        className={`toggle ${index === isActiveId ? 
+                                `active ${updateToggleCss}`         //when btn is clicked(active) -> .active and updateToggleCss is added
+                                : null }`}                                  
                         onClick={(event) => handleButtonClick(event, index)}
                         disabled={isComplete}
                     >
