@@ -1,3 +1,15 @@
+:root {
+    --default-active-toggle-bg: #F8CAA3;
+    --some-active-toggle-bg: #ffcb83;
+    --mostly-active-toggle-bg: #f8eea3; 
+    --all-active-toggle-bg:#A5E7E2;
+
+    --default-active-toggle-text: #9F938B;
+    --some-active-toggle-text: #b37e4a;
+    --mostly-active-toggle-text: #e49b1d;   
+    --all-active-toggle-text: #4CAD94;
+}
+
 .App {
     text-align: center;
     box-sizing: border-box;
