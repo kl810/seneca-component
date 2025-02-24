@@ -2,7 +2,7 @@
     width: 320px;
     height: 631px;
     border-radius: 15px;
-    background-image: linear-gradient(#F6B868, #EE6B2D);
+    background: linear-gradient(180deg, #F6B868 0%, #EE6B2D 100%); 
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     display: flex;
     justify-content: center;
