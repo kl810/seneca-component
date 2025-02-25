@@ -1,10 +1,20 @@
 import './QuizContainer.css';
 import ToggleInput from '../toggle-input/ToggleInput';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../store';
+import { goToNextQuestion } from '../../features/quiz/quizSlice';
 
 export default function QuizContainer() {
-    const { question, answerOptions, isComplete, correctCount } = useSelector((state: RootState) => state.quiz)
+    const { 
+        question, 
+        answerOptions, 
+        isComplete,
+        correctCount, 
+        showNextButton, 
+        allQuestionsCompleted
+    } = useSelector((state: RootState) => state.quiz);
+
+    const dispatch = useDispatch();
     
     const percentCorrect = parseFloat((correctCount / answerOptions.length).toFixed(2));
 
@@ -17,7 +27,11 @@ export default function QuizContainer() {
         if (percentCorrect === 1) return "all-correct";
 
         return "none-correct";
-    }
+    };
+
+    const handleNextQuestionBtn = () => {dispatch(goToNextQuestion())};
+
+    const buttonText = allQuestionsCompleted ? "Quiz completed!" : "Next question";
 
     return (
         <div className="quiz-wrapper">
@@ -47,6 +61,18 @@ export default function QuizContainer() {
                         />)
                     } 
                     <p className="answer-statement">The answer is {isComplete ? "correct!" : "incorrect"}</p>
+                    { showNextButton && 
+                        <button 
+                            type="button"
+                            name={buttonText}
+                            aria-label="Next question"
+                            value={buttonText}
+                            className="next-btn" 
+                            onClick={handleNextQuestionBtn}
+                        >
+                            {buttonText}
+                        </button>
+                    }
                 </div>
             </div>
         </div>
