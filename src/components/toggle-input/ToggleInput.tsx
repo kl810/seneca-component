@@ -26,7 +26,7 @@ export default function ToggleInput({ id, options, isComplete, correctCount, ans
 
 
     return (
-        <>  
+        <div className="toggle-wrapper">  
             <div className="toggle-container">
                 {options.map((option, index) => 
                     <button
@@ -45,6 +45,6 @@ export default function ToggleInput({ id, options, isComplete, correctCount, ans
                     </button>
                 )}
             </div>
-        </>
+        </div>
     )
 }

@@ -20,32 +20,34 @@ export default function QuizContainer() {
     }
 
     return (
-        <div 
-            className={"quiz-wrapper"}
-            style={{
-                background: 
-                    `${ isComplete ? 
-                        "linear-gradient(180deg, #76E0C2 0%, #59CADA 100%)" :       
-                        `linear-gradient(180deg, rgba(244,223,40,1) 0%,       
-                            rgba(244,223,40,${percentCorrect}) 80%), 
-                            rgb(238,107,45)`
-                    }`  //change background-color based on percentageLeft 
-            }}
-        >
-            <div className="quiz-content">
-                <h4 className="question">{question}:</h4>
-                {answerOptions.map(({id, options}, index) => 
-                    <ToggleInput 
-                        key={`${options}-${index}`} 
-                        id={id}
-                        options={options}
-                        isComplete={isComplete}
-                        correctCount={correctCount}
-                        answerOptions={answerOptions}
-                        getBgColor= {getBgColor}
-                    />)
-                } 
-                <p className="answer-statement">The answer is {isComplete ? "correct!" : "incorrect"}</p>
+        <div className="quiz-wrapper">
+            <div 
+                className={"quiz-container"}
+                style={{
+                    background: 
+                        `${ isComplete ? 
+                            "linear-gradient(180deg, #76E0C2 0%, #59CADA 100%)" :       
+                            `linear-gradient(180deg, rgb(250, 213, 78) 0%,       
+                                rgba(244,223,40,${percentCorrect}) 30%), 
+                                rgb(238,107,45)`
+                        }`  //change background-color based on percentageLeft 
+                }}
+            >
+                <div className="quiz-content">
+                    <h4 className="question">{question}:</h4>
+                    {answerOptions.map(({id, options}, index) => 
+                        <ToggleInput 
+                            key={`${options}-${index}`} 
+                            id={id}
+                            options={options}
+                            isComplete={isComplete}
+                            correctCount={correctCount}
+                            answerOptions={answerOptions}
+                            getBgColor= {getBgColor}
+                        />)
+                    } 
+                    <p className="answer-statement">The answer is {isComplete ? "correct!" : "incorrect"}</p>
+                </div>
             </div>
         </div>
     )

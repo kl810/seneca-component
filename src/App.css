@@ -1,4 +1,5 @@
 :root {
+    font-size: 16px; 
     --default-active-toggle-bg: #F8CAA3;
     --some-active-toggle-bg: #ffcb83;
     --mostly-active-toggle-bg: #f8eea3; 
