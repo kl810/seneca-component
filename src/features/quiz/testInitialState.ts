@@ -1,6 +1,6 @@
 export const testData = [
     {
-        question: "An animal cell contains",
+        question: "An animal cell contains:",
         correctCount: 0,
         isComplete: false,
         showNextButton: false,

@@ -48,7 +48,7 @@ export default function QuizContainer() {
                 }}
             >
                 <div className="quiz-content">
-                    <h4 className="question">{question}:</h4>
+                    <h4 className="question">{question}</h4>
                     {answerOptions.map(({id, options}, index) => 
                         <ToggleInput 
                             key={`${options}-${index}`} 
