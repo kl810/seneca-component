@@ -1,19 +1,25 @@
 :root {
     font-size: 16px; 
+    --primary-white: #FFFFFF;
+    --default-bg-primary: #F6B868;
+    --default-bg-secondary: #EE6B2D;
+    --complete-bg-primary: #76E0C2;
+    --complete-bg-secondary: #59CADA;
+
     --default-active-toggle-bg: #F8CAA3;
     --some-active-toggle-bg: #ffcb83;
-    --mostly-active-toggle-bg: #f8eea3; 
-    --all-active-toggle-bg:#A5E7E2;
+    --most-active-toggle-bg: #f8eea3; 
+    --complete-active-toggle-bg:#A5E7E2;
 
     --default-active-toggle-text: #9F938B;
     --some-active-toggle-text: #b37e4a;
-    --mostly-active-toggle-text: #e49b1d;   
-    --all-active-toggle-text: #4CAD94;
+    --most-active-toggle-text: #e49b1d;   
+    --complete-active-toggle-text: #4CAD94;
 }
 
 .App {
     text-align: center;
     box-sizing: border-box;
     font-family: 'Mulish', serif;
-    color: #FFFFFF;
+    color: var(--primary-white);
 }

@@ -2,7 +2,7 @@ import './QuizContainer.css';
 import ToggleInput from '../toggle-input/ToggleInput';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../store';
-import { goToNextQuestion } from '../../features/quiz/quizSlice';
+import { updateCurrentQuestion } from '../../features/quiz/quizSlice';
 
 export default function QuizContainer() {
     const { 
@@ -13,23 +13,11 @@ export default function QuizContainer() {
         showNextButton, 
         allQuestionsCompleted
     } = useSelector((state: RootState) => state.quiz);
-
     const dispatch = useDispatch();
     
     const percentCorrect = parseFloat((correctCount / answerOptions.length).toFixed(2));
 
-    const getBgColor = (count: number, options: Array<object>): string => {
-
-        if (percentCorrect === 0) return "none-correct";
-        if (percentCorrect <= 0.3) return "few-correct";
-        if (percentCorrect <= 0.6) return "some-correct";
-        if (percentCorrect <= 0.99) return "mostly-correct";
-        if (percentCorrect === 1) return "all-correct";
-
-        return "none-correct";
-    };
-
-    const handleNextQuestionBtn = () => {dispatch(goToNextQuestion())};
+    const handleNextQuestionBtn = () => {dispatch(updateCurrentQuestion())};
 
     const buttonText = allQuestionsCompleted ? "Quiz completed!" : "Next question";
 
@@ -40,10 +28,10 @@ export default function QuizContainer() {
                 style={{
                     background: 
                         `${ isComplete ? 
-                            "linear-gradient(180deg, #76E0C2 0%, #59CADA 100%)" :       
-                            `linear-gradient(180deg, rgb(250, 213, 78) 0%,       
+                            "linear-gradient(180deg, var(--complete-bg-primary) 0%, var(--complete-bg-secondary) 100%)" :       
+                            `linear-gradient(180deg, var(--default-bg-primary) 0%,       
                                 rgba(244,223,40,${percentCorrect}) 30%), 
-                                rgb(238,107,45)`
+                                var(--default-bg-secondary)`
                         }`  //change background-color based on percentageLeft 
                 }}
             >
@@ -57,8 +45,7 @@ export default function QuizContainer() {
                             isComplete={isComplete}
                             correctCount={correctCount}
                             answerOptions={answerOptions}
-                            getBgColor= {getBgColor}
-                        />)
+                            />)
                     } 
                     <p className="answer-statement">The answer is {isComplete ? "correct!" : "incorrect"}</p>
                     { showNextButton && 

@@ -15,7 +15,7 @@
     justify-content: space-evenly;
     align-items: center;
     position: relative;
-    border: 2px solid #FFFFFF;
+    border: 2px solid var(--primary-white);
     border-radius: 50px;
     margin: 1rem;
     flex-wrap: wrap;
@@ -28,7 +28,7 @@
     border: none;
     background-color: transparent;
     border-radius: 50px;
-    color: #FFFFFF;
+    color: var(--primary-white);
     cursor: pointer;
     white-space: nowrap;
     overflow: hidden;
@@ -64,13 +64,13 @@
     --active-text: var(--some-active-toggle-text);
 }
 
-.mostly-correct {
-    --active-bg: var(--mostly-active-toggle-bg);
-    --active-text: var(--mostly-active-toggle-text);
+.most-correct {
+    --active-bg: var(--most-active-toggle-bg);
+    --active-text: var(--most-active-toggle-text);
 }
 
-.all-correct {
-    --active-bg: var(--all-active-toggle-bg);
-    --active-text: var(--all-active-toggle-text);
+.complete-correct {
+    --active-bg: var(--complete-active-toggle-bg);
+    --active-text: var(--complete-active-toggle-text);
 }
 

@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import './ToggleInput.css';
 import { updateSelectedAnswer } from '../../features/quiz/quizSlice';
@@ -10,15 +10,24 @@ interface ToggleInputProps {
     isComplete: boolean,
     correctCount: number,
     answerOptions: Array<object>,
-    getBgColor: (count: number, options: Array<object>) => string,
 }
 
-export default function ToggleInput({ id, options, isComplete, correctCount, answerOptions, getBgColor }: ToggleInputProps) {
+export default function ToggleInput({ id, options, isComplete, correctCount, answerOptions }: ToggleInputProps) {
     const [ isActiveId, setIsActiveId ] = useState<number | null>(null)
 
     const dispatch = useDispatch()
 
-    const updateToggleCss = getBgColor(correctCount, answerOptions) || "";
+    const getBgColor = (): string => {
+        const percentCorrect = parseFloat((correctCount / answerOptions.length).toFixed(2));
+
+        if (percentCorrect === 0) return "none-correct";
+        if (percentCorrect <= 0.3) return "few-correct";
+        if (percentCorrect <= 0.6) return "some-correct";
+        if (percentCorrect <= 0.99) return "most-correct";
+        if (percentCorrect === 1) return "complete-correct";
+
+        return "none-correct";
+    };
 
     const handleButtonClick = (event: React.MouseEvent<HTMLButtonElement>, index: number) => {
         setIsActiveId(index)
@@ -36,7 +45,7 @@ export default function ToggleInput({ id, options, isComplete, correctCount, ans
                         aria-label="Answer Option"
                         value={option}
                         className={`toggle ${index === isActiveId ? 
-                                `active ${updateToggleCss}`         //when btn is clicked(active) -> .active and updateToggleCss is added
+                                `active ${getBgColor()}`         
                                 : "" }`}                                  
                         onClick={(event) => handleButtonClick(event, index)}
                         disabled={isComplete}

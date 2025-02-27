@@ -14,7 +14,7 @@
     max-height: 720px;
     padding: 3rem;
     border-radius: 15px;
-    background: linear-gradient(180deg, #F6B868 0%, #EE6B2D 100%); 
+    background: linear-gradient(180deg, var(--default-bg-primary) 0%, var(--default-bg-secondary) 100%); 
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     display: flex;
     justify-content: center;
@@ -38,10 +38,10 @@
     width: fit-content;
     min-width: 50px;
     padding: 1rem;
-    border: 2px solid white;
+    border: 2px solid var(--primary-white);
     background-color: transparent;
     border-radius: 50px;
-    color: #FFFFFF;
+    color: var(--primary-white);
     font-size: clamp(1.125rem, 1rem + 0.625vw, 1.5rem);
     font-weight: 700;
     cursor: pointer;
