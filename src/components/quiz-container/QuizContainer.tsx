@@ -5,21 +5,21 @@ import { RootState } from '../../store';
 import { updateCurrentQuestion } from '../../features/quiz/quizSlice';
 
 export default function QuizContainer() {
-    const { 
-        question, 
+    const {
+        question,
         answerOptions, 
         isComplete,
         correctCount, 
-        showNextButton, 
-        allQuestionsCompleted
-    } = useSelector((state: RootState) => state.quiz);
+    } = useSelector((state: RootState) => state.quiz.currentQuestion);
+    const { currentIndex, questions } = useSelector((state: RootState) => state.quiz);
     const dispatch = useDispatch();
     
     const percentCorrect = parseFloat((correctCount / answerOptions.length).toFixed(2));
+    const isLastQuestion = currentIndex === questions.length - 1
+    const isQuizComplete = isComplete && isLastQuestion
+    const buttonText = isQuizComplete ? "Quiz completed!" : "Next question";
 
     const handleNextQuestionBtn = () => {dispatch(updateCurrentQuestion())};
-
-    const buttonText = allQuestionsCompleted ? "Quiz completed!" : "Next question";
 
     return (
         <div className="quiz-wrapper">
@@ -45,10 +45,10 @@ export default function QuizContainer() {
                             isComplete={isComplete}
                             correctCount={correctCount}
                             answerOptions={answerOptions}
-                            />)
+                        />)
                     } 
                     <p className="answer-statement">The answer is {isComplete ? "correct!" : "incorrect"}</p>
-                    { showNextButton && 
+                    { isComplete && 
                         <button 
                             type="button"
                             name={buttonText}

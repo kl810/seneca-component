@@ -3,8 +3,6 @@ export const testData = [
         question: "An animal cell contains:",
         correctCount: 0,
         isComplete: false,
-        showNextButton: false,
-        allQuestionsCompleted: false,
         answerOptions: [
             {
                 "id": 1,
@@ -40,8 +38,6 @@ export const testData = [
         question: "What are the ideal conditions inside an office?",
         correctCount: 0,
         isComplete: false,
-        showNextButton: false,
-        allQuestionsCompleted: false,
         answerOptions: [
             {
                 "id": 1,
@@ -77,8 +73,6 @@ export const testData = [
         question: "Select the verb in each group:",
         correctCount: 0,
         isComplete: false,
-        showNextButton: false,
-        allQuestionsCompleted: false,
         answerOptions: [
             {
                 "id": 1,
