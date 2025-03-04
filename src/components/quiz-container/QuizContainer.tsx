@@ -32,7 +32,7 @@ export default function QuizContainer() {
                             `linear-gradient(180deg, var(--default-bg-primary) 0%,       
                                 rgba(244,223,40,${percentCorrect}) 30%), 
                                 var(--default-bg-secondary)`
-                        }`  //change background-color based on percentageLeft 
+                        }`  //change background-color based on percentageCorrect
                 }}
             >
                 <div className="quiz-content">
@@ -52,7 +52,7 @@ export default function QuizContainer() {
                         <button 
                             type="button"
                             name={buttonText}
-                            aria-label="Next question"
+                            aria-label={buttonText}
                             value={buttonText}
                             className="next-btn" 
                             onClick={handleNextQuestionBtn}
