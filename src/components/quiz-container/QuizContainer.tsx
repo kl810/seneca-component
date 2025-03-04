@@ -24,7 +24,7 @@ export default function QuizContainer() {
     return (
         <div className="quiz-wrapper">
             <div 
-                className={"quiz-container"}
+                className="quiz-container"
                 style={{
                     background: 
                         `${ isComplete ? 
